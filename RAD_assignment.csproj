@@ -178,7 +178,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="booknow-54e82.json">
+    <Content Include="booknow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

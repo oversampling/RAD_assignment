@@ -18,9 +18,9 @@ namespace RAD_assignment
         public Admin_Login()
         {
             this.InitializeComponent();
-            string path = System.AppDomain.CurrentDomain.BaseDirectory + "booknow-54e82.json";
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + @"booknow.json";
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
-            db = FirestoreDb.Create("booknow-54e82");
+            db = FirestoreDb.Create("booknow-61e27");
             txb_password.Text = "Success";
         }
 
@@ -37,7 +37,7 @@ namespace RAD_assignment
             //};
             //coll.AddAsync(data1);
             //txb_university.Text = "succesfully added";
-            Query qref = db.Collection("UniversityAdmin").WhereEqualTo("Username", txb_username.Text).WhereEqualTo("Password", txb_password.Text).WhereEqualTo("University", txb_university.Text);
+            Query qref = db.Collection("Admin").WhereEqualTo("username", txb_username.Text).WhereEqualTo("password", txb_password.Text).WhereEqualTo("university", txb_university.Text);
             QuerySnapshot capitalQuerySnapshot = await qref.GetSnapshotAsync();
 
             if (capitalQuerySnapshot.Count > 0)
@@ -55,6 +55,7 @@ namespace RAD_assignment
                         Dictionary<string, string> loginId = new Dictionary<string, string>();
                         loginId.Add("adminId", documentID);
                         Frame.Navigate(typeof(Admin_Main_Page), loginId);
+                        break;
                     }
                 }
             }
