@@ -15,23 +15,23 @@
                 <NavigationViewItem
                         x:Name="link_studentDetail"
                         Content="Student Details"
-                        Tag="SamplePage1" />
+                        Tag="SamplePage1" Tapped="link_studentDetail_Tapped"/>
                 <NavigationViewItem
                         x:Name="link_lecturerDetail"
                         Content="Lecturer Details"
-                        Tag="SamplePage2" />
+                        Tag="SamplePage2" Tapped="link_lecturerDetail_Tapped" />
                 <NavigationViewItem
                         x:Name="link_add_student"
-                        Content="Lecturer Login"
-                        Tag="SamplePage3" />
+                        Content="Add Student"
+                        Tag="SamplePage3" Tapped="link_add_student_Tapped"/>
                 <NavigationViewItem
                         x:Name="link_add_lecturer"
-                        Content="Lecturer Login"
-                        Tag="SamplePage3" />
+                        Content="Add Lecturer"
+                        Tag="SamplePage3" Tapped="link_add_lecturer_Tapped"/>
                 <NavigationViewItem
                         x:Name="link_chat"
                         Content="Chat"
-                        Tag="SamplePage3" />
+                        Tag="SamplePage3" Tapped="link_chat_Tapped"/>
             </NavigationView.MenuItems>
         </NavigationView>
         <StackPanel Orientation="Vertical" Margin="150 0">

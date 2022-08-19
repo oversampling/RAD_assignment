@@ -22,9 +22,40 @@ namespace RAD_assignment
     /// </summary>
     public sealed partial class Admin_Main_Page : Page
     {
+        private Dictionary<string, string> details;
         public Admin_Main_Page()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            details = (Dictionary<string, string>)e.Parameter;
+        }
+
+        private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Admin_All_Chat), details);
+        }
+
+        private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void link_add_student_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void link_lecturerDetail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void link_studentDetail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }
