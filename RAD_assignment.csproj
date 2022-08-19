@@ -116,6 +116,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Admin_All_Chat.xaml.cs">
+      <DependentUpon>Admin_All_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Chat.xaml.cs">
+      <DependentUpon>Admin_Chat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Main_Page.xaml.cs">
       <DependentUpon>Admin_Main_Page.xaml</DependentUpon>
     </Compile>
@@ -150,6 +156,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Admin_All_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin_Main_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

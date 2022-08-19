@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="RAD_assignment.Admin_All_Chat"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RAD_assignment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Horizontal">
+        <NavigationView PaneDisplayMode="Left" IsSettingsVisible="False" x:Name="navbar">
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                        x:Name="link_studentDetail"
+                        Content="Student Details"
+                        Tag="SamplePage1" Tapped="link_studentDetail_Tapped"/>
+                <NavigationViewItem
+                        x:Name="link_lecturerDetail"
+                        Content="Lecturer Details"
+                        Tag="SamplePage2" Tapped="link_lecturerDetail_Tapped" />
+                <NavigationViewItem
+                        x:Name="link_add_student"
+                        Content="Add Student"
+                        Tag="SamplePage3" Tapped="link_add_student_Tapped"/>
+                <NavigationViewItem
+                        x:Name="link_add_lecturer"
+                        Content="Add Lecturer"
+                        Tag="SamplePage3" Tapped="link_add_lecturer_Tapped"/>
+                <NavigationViewItem
+                        x:Name="link_chat"
+                        Content="Chat"
+                        Tag="SamplePage3" Tapped="link_chat_Tapped"/>
+            </NavigationView.MenuItems>
+        </NavigationView>
+        <StackPanel Orientation="Vertical" Margin="150 0">
+            <controls:DropShadowPanel Color="Black"
+                          OffsetX="10"
+                          OffsetY="0"
+                          BlurRadius="5"
+                          ShadowOpacity=".4"
+                          Width="847"
+                          Height="624" 
+                          Margin="0 200"        
+                          HorizontalContentAlignment="Stretch"
+                          VerticalContentAlignment="Stretch">
+                <StackPanel Orientation="Vertical" Background="White" MaxWidth="847" Height="624"  HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Width="847">
+                        <TextBlock FontSize="30" FontWeight="Black" Foreground="Black" Height="109" Padding="0 30" TextWrapping="Wrap" Width="700"
+                                   TextAlignment="Left"><Run Text="Chat"/></TextBlock>
+                        <ProgressRing x:Name="progress1" Width="10" Margin="10 0"/>
+                        <Button x:Name="btn_load_data" Click="btn_load_data_Click" Content="Load Chat" Width="100" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    
+                    <Border Background="LightGray" Width="825" Height="1"></Border>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Width="847" Height="515">
+                        <ListView x:Name="ChatList" IsItemClickEnabled="True" ItemClick="ChatList_ItemClick">
+                            <ListView.Items>
+                                <ListViewItem Background="White" Width="825" Height="69">
+                                    <TextBlock x:Name="test" Text="hello"/>
+                                </ListViewItem>
+                            </ListView.Items>
+                        </ListView>
+                    </ScrollViewer>
+                </StackPanel>
+            </controls:DropShadowPanel>
+        </StackPanel>
+    </StackPanel>
+</Page>
