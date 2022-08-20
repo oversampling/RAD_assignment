@@ -95,7 +95,7 @@
                           VerticalContentAlignment="Stretch">
                         <TextBox x:Name="txb_password" Width="261" Background="White" BorderThickness="0"/>
                     </controls:DropShadowPanel>
-                    <Button x:Name="btn_login" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="20 0" Click="btn_login_Click_1">Login</Button>
+                    <Button x:Name="btn_login" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="20 0" Click="btn_login_Click">Login</Button>
                 </Grid>
             </StackPanel>
         </controls:DropShadowPanel>

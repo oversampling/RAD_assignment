@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,20 +28,11 @@ namespace RAD_assignment
         public Student_Login()
         {
             this.InitializeComponent();
+            db = FirestoreDb.Create("booknow-61e27");
         }
         async private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             // Reference: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Firestore/latest
-            //CollectionReference coll = db.Collection("UniversityAdmin");
-            //Dictionary<string, object> data1 = new Dictionary<string, object>
-            //{
-            //    { "Username", txb_username.Text},
-            //    { "Password", txb_password.Text},
-            //    { "University", txb_university.Text}
-
-            //};
-            //coll.AddAsync(data1);
-            //txb_university.Text = "succesfully added";
             Query qref = db.Collection("Student").WhereEqualTo("username", txb_username.Text).WhereEqualTo("password", txb_password.Text).WhereEqualTo("university", txb_university.Text);
             QuerySnapshot capitalQuerySnapshot = await qref.GetSnapshotAsync();
 
@@ -65,7 +57,9 @@ namespace RAD_assignment
             }
             else
             {
-                txb_username.Text = "Wrong password or username";
+                new ToastContentBuilder()
+                    .AddText("Wrong Username Or Password", hintMaxLines: 1)
+                    .AddText("Please reenter your username and password").Show();
             }
 
         }
@@ -83,11 +77,6 @@ namespace RAD_assignment
         private void lecturerLogin_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Lecturer_Login));
-        }
-
-        private void btn_login_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
