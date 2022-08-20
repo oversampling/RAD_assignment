@@ -61,7 +61,9 @@ namespace RAD_assignment
             }
             else
             {
-                txb_username.Text = "Wrong password or username";
+                new ToastContentBuilder()
+                    .AddText("Wrong Username Or Password", hintMaxLines: 1)
+                    .AddText("Please reenter your username and password").Show();
             }
             
         }
