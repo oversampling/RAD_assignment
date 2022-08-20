@@ -56,7 +56,7 @@ namespace RAD_assignment
 
         private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(Admin_All_Chat), details);
+            this.Frame.Navigate(typeof(Admin_All_Chat), details);
         }
 
         private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
@@ -90,6 +90,7 @@ namespace RAD_assignment
         }
         private async void load_chat_message(string adminId)
         {
+            ChatList.Items.Clear();
             progress1.IsActive = true;
             Query qref = db.Collection("Chat").OrderBy("createdAt");
             QuerySnapshot capitalQuerySnapshot = await qref.GetSnapshotAsync();
@@ -141,6 +142,29 @@ namespace RAD_assignment
                 chat_message.Content = new TextBlock() { Text = message, TextAlignment = TextAlignment.Left, Width = 820 };
                 ChatList.Items.Add(chat_message);
             }
+        }
+
+        private async void btn_submit_message_Click(object sender, RoutedEventArgs e)
+        {
+            progress1.IsActive = true;
+            string message = txb_chat_message.Text;
+            Dictionary<string, object> chat = new Dictionary<string, object>
+            {
+                { "sender", details["adminId"] },
+                { "receiver", details["chat_partner"]},
+                { "createdAt", Timestamp.GetCurrentTimestamp()},
+                { "message", message }
+            };
+            DocumentReference docRef = await db.Collection("Chat").AddAsync(chat);
+            ListViewItem chat_message = new ListViewItem
+            {
+                Width = 847,
+                Height = 69,
+            };
+            chat_message.Content = new TextBlock() { Text = message, TextAlignment = TextAlignment.Right, Width = 820 };
+            ChatList.Items.Add(chat_message);
+            txb_chat_message.Text = "";
+            progress1.IsActive = false;
         }
     }
 }

@@ -62,7 +62,7 @@
                     </ScrollViewer>
                     <StackPanel Orientation="Horizontal" Width="825">
                         <TextBox x:Name="txb_chat_message" Width="700" Height="40" HorizontalAlignment="left" PlaceholderText="Enter Your Chat Message Here"></TextBox>
-                        <Button x:Name="btn_submit_message" Width="75" Content="Send" Margin="20 0" HorizontalAlignment="Center" />
+                        <Button x:Name="btn_submit_message" Width="75" Content="Send" Margin="20 0" Click="btn_submit_message_Click" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
             </controls:DropShadowPanel>

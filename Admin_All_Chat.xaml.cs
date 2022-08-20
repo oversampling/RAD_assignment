@@ -125,7 +125,7 @@ namespace RAD_assignment
 
         private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(Admin_All_Chat), details);
+            this.Frame.Navigate(typeof(Admin_All_Chat), details);
         }
 
         private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
