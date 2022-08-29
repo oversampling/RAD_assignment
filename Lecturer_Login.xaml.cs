@@ -63,7 +63,7 @@ namespace RAD_assignment
                             Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
                         }
                         Dictionary<string, string> loginId = new Dictionary<string, string>();
-                        loginId.Add("studentId", documentID);
+                        loginId.Add("lecturerId", documentID);
                         Frame.Navigate(typeof(Lecturer_Main_Page), loginId);
                         break;
                     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,17 +21,17 @@ namespace RAD_assignment
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Lecturer_Main_Page : Page
+    public sealed partial class Student_Main_Page : Page
     {
         Dictionary<string, string> details = new Dictionary<string, string>();
-        public Lecturer_Main_Page()
+        public Student_Main_Page()
         {
             this.InitializeComponent();
         }
 
         private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Lecturer_Chat), details);
+            this.Frame.Navigate(typeof(Student_Chat), details);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

@@ -21,29 +21,28 @@ namespace RAD_assignment
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Student_Chat : Page
+    public sealed partial class Lecturer_Chat : Page
     {
-        FirestoreDb db;
+        private FirestoreDb db;
         Dictionary<string, string> details = new Dictionary<string, string>();
         private string selected_chatPartner;
-        public Student_Chat()
+        public Lecturer_Chat()
         {
             this.InitializeComponent();
             db = FirestoreDb.Create("booknow-61e27");
         }
-
         private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Student_Chat), details);
+            this.Frame.Navigate(typeof(Lecturer_Chat), details);
         }
         private async void load_chat_partner()
         {
             progress1.IsActive = true;
-            DocumentSnapshot student = await db.Collection("Student").Document(details["studentId"]).GetSnapshotAsync();
-            Dictionary<string, object> student_data = student.ToDictionary();
-            Query query = db.Collection("Lecturer").WhereEqualTo("university", (string)student_data["university"]);
-            QuerySnapshot lecture_chat_partner = await query.GetSnapshotAsync();
-            foreach (DocumentSnapshot documentSnapshot in lecture_chat_partner.Documents)
+            DocumentSnapshot lecturer = await db.Collection("Lecturer").Document(details["lecturerId"]).GetSnapshotAsync();
+            Dictionary<string, object> lecturer_data = lecturer.ToDictionary();
+            Query query = db.Collection("Student").WhereEqualTo("university", (string)lecturer_data["university"]);
+            QuerySnapshot student_chat_partner = await query.GetSnapshotAsync();
+            foreach (DocumentSnapshot documentSnapshot in student_chat_partner.Documents)
             {
                 if (documentSnapshot.Exists)
                 {
@@ -51,7 +50,7 @@ namespace RAD_assignment
                     chatPartner.Items.Add(new TextBlock() { Text = data["username"].ToString(), Tag = documentSnapshot.Id.ToString() });
                 }
             }
-            Query query_admin = db.Collection("Admin").WhereEqualTo("university", (string)student_data["university"]);
+            Query query_admin = db.Collection("Admin").WhereEqualTo("university", (string)lecturer_data["university"]);
             QuerySnapshot admin_chat_partner = await query_admin.GetSnapshotAsync();
             foreach (DocumentSnapshot documentSnapshot in admin_chat_partner.Documents)
             {
@@ -72,11 +71,11 @@ namespace RAD_assignment
 
         private void btn_load_data_Click(object sender, RoutedEventArgs e)
         {
-            load_chat_message(details["studentId"]);
+            load_chat_message(details["lecturerId"]);
 
         }
 
-        private async void load_chat_message(string studentId)
+        private async void load_chat_message(string lecturerId)
         {
             if (selected_chatPartner != null)
             {
@@ -92,12 +91,12 @@ namespace RAD_assignment
                         if (documentSnapshot.Exists)
                         {
                             Dictionary<string, object> data = documentSnapshot.ToDictionary();
-                            if (data["sender"].Equals(studentId) && data["receiver"].Equals(selected_chatPartner))
+                            if (data["sender"].Equals(lecturerId) && data["receiver"].Equals(selected_chatPartner))
                             {
                                 // message in right
                                 load_data_list(data["message"].ToString(), "sender");
                             }
-                            else if (data["receiver"].Equals(studentId) && data["sender"].Equals(selected_chatPartner))
+                            else if (data["receiver"].Equals(lecturerId) && data["sender"].Equals(selected_chatPartner))
                             {
                                 // message in left
                                 load_data_list(data["message"].ToString(), "receiver");
@@ -149,7 +148,7 @@ namespace RAD_assignment
             string message = txb_chat_message.Text;
             Dictionary<string, object> chat = new Dictionary<string, object>
             {
-                { "sender", details["studentId"] },
+                { "sender", details["lecturerId"] },
                 { "receiver", selected_chatPartner},
                 { "createdAt", Timestamp.GetCurrentTimestamp()},
                 { "message", message }

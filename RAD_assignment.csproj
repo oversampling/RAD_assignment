@@ -131,10 +131,28 @@
     <Compile Include="Admin_Login.xaml.cs">
       <DependentUpon>Admin_Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lecturer_Chat.xaml.cs">
+      <DependentUpon>Lecturer_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lecturer_Login.xaml.cs">
+      <DependentUpon>Lecturer_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lecturer_Main_Page.xaml.cs">
+      <DependentUpon>Lecturer_Main_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student_Chat.xaml.cs">
+      <DependentUpon>Student_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Login.xaml.cs">
+      <DependentUpon>Student_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Main_Page.xaml.cs">
+      <DependentUpon>Student_Main_Page.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -172,9 +190,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lecturer_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lecturer_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lecturer_Main_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Student_Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student_Main_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
