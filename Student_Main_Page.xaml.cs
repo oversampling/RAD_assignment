@@ -38,5 +38,10 @@ namespace RAD_assignment
             base.OnNavigatedTo(e);
             details = (Dictionary<string, string>)e.Parameter;
         }
+
+        private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Search_Schedules), details);
+        }
     }
 }

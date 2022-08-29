@@ -25,6 +25,7 @@
                         Tag="SamplePage3"/>
                 <NavigationViewItem
                         x:Name="link_add_lecturer"
+                        Tapped="link_add_lecturer_Tapped"
                         Content="Search Schedule Details"
                         Tag="SamplePage3"/>
                 <NavigationViewItem

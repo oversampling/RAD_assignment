@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="RAD_assignment.Student_Chat"
+    x:Class="RAD_assignment.Student_Search_Schedules"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RAD_assignment"
@@ -24,9 +24,9 @@
                         Content="Make Appointment"
                         Tag="SamplePage3"/>
                 <NavigationViewItem
-                        x:Name="link_add_lecturer"
+                        x:Name="search_schedule"
                         Content="Search Schedule Details"
-                        Tapped="link_add_lecturer_Tapped"
+                        Tapped="search_schedule_Tapped"
                         Tag="SamplePage3"/>
                 <NavigationViewItem
                         x:Name="link_chat"
@@ -50,23 +50,19 @@
                     <StackPanel Orientation="Horizontal" Width="847">
                         <StackPanel Orientation="Horizontal" Width="700" >
                             <TextBlock FontSize="30" FontWeight="Black" Foreground="Black" Height="109" Padding="0 30" TextWrapping="Wrap" x:Name="txt_chat_partner"
-                                   TextAlignment="Left"><Run Text="Chat With"/></TextBlock>
-                            <ComboBox VerticalAlignment="Center" Margin="30 0" x:Name="chatPartner" SelectionChanged="chatPartner_SelectionChanged">
+                                   TextAlignment="Left"><Run Text="Search Schedules For"/></TextBlock>
+                            <ComboBox VerticalAlignment="Center" Margin="30 0" x:Name="chatPartner" SelectionChanged="lecturer_SelectionChanged">
                             </ComboBox>
+                            <ProgressRing x:Name="progress1" Width="10" Margin="10 0"/>
                         </StackPanel>
-                        <ProgressRing x:Name="progress1" Width="10" Margin="10 0"/>
-                        <Button x:Name="btn_load_data" Click="btn_load_data_Click" Content="Load Chat" Width="100" HorizontalAlignment="Center"/>
+                        <Button x:Name="btn_load_data" Click="btn_load_data_Click" Content="Load Schedules" Width="130" HorizontalAlignment="Center"/>
                     </StackPanel>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Width="847" Height="435" Margin="0 15">
-                        <ListView x:Name="ChatList">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Width="847" Height="490" Margin="0 15">
+                        <ListView x:Name="ScheduleList">
                             <ListView.Items>
                             </ListView.Items>
                         </ListView>
                     </ScrollViewer>
-                    <StackPanel Orientation="Horizontal" Width="825">
-                        <TextBox x:Name="txb_chat_message" Width="700" Height="40" HorizontalAlignment="left" PlaceholderText="Enter Your Chat Message Here"></TextBox>
-                        <Button x:Name="btn_submit_message" Width="75" Content="Send" Margin="20 0" Click="btn_submit_message_Click" HorizontalAlignment="Center" />
-                    </StackPanel>
                 </StackPanel>
             </controls:DropShadowPanel>
         </StackPanel>

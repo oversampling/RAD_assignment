@@ -153,6 +153,9 @@
     <Compile Include="Student_Main_Page.xaml.cs">
       <DependentUpon>Student_Main_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Student_Search_Schedules.xaml.cs">
+      <DependentUpon>Student_Search_Schedules.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -215,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Student_Main_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student_Search_Schedules.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

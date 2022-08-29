@@ -165,5 +165,10 @@ namespace RAD_assignment
             txb_chat_message.Text = "";
             progress1.IsActive = false;
         }
+
+        private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Search_Schedules), details);
+        }
     }
 }
