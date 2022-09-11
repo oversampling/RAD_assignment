@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,10 +22,12 @@ namespace RAD_assignment
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Student_Main_Page : Page
+    public sealed partial class make_appointment : Page
     {
         FirestoreDb db;
         Dictionary<string, string> details = new Dictionary<string, string>();
+
+
         private void link_studentDetail_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Student_Main_Page), details);
@@ -38,6 +41,11 @@ namespace RAD_assignment
         {
             this.Frame.Navigate(typeof(Student_Chat), details);
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            details = (Dictionary<string, string>)e.Parameter;
+        }
         private void Make_Appointment_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(make_appointment), details);
@@ -47,45 +55,36 @@ namespace RAD_assignment
         {
             this.Frame.Navigate(typeof(my_appointment), details);
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            details = (Dictionary<string, string>)e.Parameter;
-        }
-
-        private void link_add_lecturer_Tapped(object sender, TappedRoutedEventArgs e)
+        public make_appointment()
         {
 
-        }
-
-        public Student_Main_Page()
-        {
             this.InitializeComponent();
             string path = System.AppDomain.CurrentDomain.BaseDirectory + @"booknow.json";
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("booknow-61e27");
             if (db != null)
             {
-                txb_universityname.Text = "SUCCESS";
+                txb_title.Text = "Success";
+
             }
         }
-
-        async private void Btn_Update_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            {
-                DocumentReference update = db.Collection("Student").Document("cdnX333M5QErrh0glVDe");
-                Dictionary<string, object> updates = new Dictionary<string, object>
-            {
 
-
-
-               {"username", txb_UserName.Text },
-                {"password", txb_Password.Text },
-                {"university",txb_universityname.Text }
-            };
-                await update.UpdateAsync(updates);
-            }
         }
+
+        async private void Btn_MakeAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            Dictionary<string, object> updates = new Dictionary<string, object>
+            {
+                {"studentID",details["studentId"]},
+                { "lecturerID", lecturer_id.Text },
+                 {"title", txb_title.Text },
+                 {"schedule", "7 July 2022, 0600" },
+                 {"status", "pending" },
+            };
+            DocumentReference update = await db.Collection("Appointment").AddAsync(updates);
+        }
+
     }
 }

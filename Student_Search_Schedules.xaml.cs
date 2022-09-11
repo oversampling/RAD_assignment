@@ -32,9 +32,27 @@ namespace RAD_assignment
             this.InitializeComponent();
             db = FirestoreDb.Create("booknow-61e27");
         }
+        private void link_studentDetail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Main_Page), details);
+        }
+
+        private void link_SearchScheduleDetails_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Search_Schedules), details);
+        }
         private void link_chat_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Student_Chat), details);
+        }
+        private void Make_Appointment_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(make_appointment), details);
+        }
+
+        private void my_appointment_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(my_appointment), details);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

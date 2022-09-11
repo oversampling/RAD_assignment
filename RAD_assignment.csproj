@@ -131,6 +131,7 @@
     <Compile Include="Admin_Login.xaml.cs">
       <DependentUpon>Admin_Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FirebaseResponse.cs" />
     <Compile Include="Lecturer_Appointment.xaml.cs">
       <DependentUpon>Lecturer_Appointment.xaml</DependentUpon>
     </Compile>
@@ -153,6 +154,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="make appointment.xaml.cs" />
+    <Compile Include="my appointment.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student_Chat.xaml.cs">
       <DependentUpon>Student_Chat.xaml</DependentUpon>
@@ -166,6 +169,7 @@
     <Compile Include="Student_Search_Schedules.xaml.cs">
       <DependentUpon>Student_Search_Schedules.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Thetitle.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -228,6 +232,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="make appointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="my appointment.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

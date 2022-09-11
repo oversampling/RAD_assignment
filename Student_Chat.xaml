@@ -12,21 +12,21 @@
         <NavigationView PaneDisplayMode="Left" IsSettingsVisible="False" x:Name="navbar">
             <NavigationView.MenuItems>
                 <NavigationViewItem
-                        x:Name="link_studentDetail"
+                        x:Name="link_studentDetail" Tapped="link_studentDetail_Tapped"
                         Content="Student Details"
                         Tag="SamplePage1"/>
                 <NavigationViewItem
-                        x:Name="link_lecturerDetail"
+                        x:Name="link_lecturerDetail" Tapped="my_appointment_Tapped"
                         Content="My Appointment"
                         Tag="SamplePage2" />
                 <NavigationViewItem
-                        x:Name="link_add_student"
+                        x:Name="link_add_student" Tapped="Make_Appointment_Tapped"
                         Content="Make Appointment"
                         Tag="SamplePage3"/>
                 <NavigationViewItem
-                        x:Name="link_add_lecturer"
+                        x:Name="link_SearchScheduleDetails"
+                        Tapped="link_SearchScheduleDetails_Tapped"
                         Content="Search Schedule Details"
-                        Tapped="link_add_lecturer_Tapped"
                         Tag="SamplePage3"/>
                 <NavigationViewItem
                         x:Name="link_chat"
