@@ -30,50 +30,27 @@ namespace RAD_assignment
         public Lecturer_Schedule()
         {
             this.InitializeComponent();
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + @"booknow.json";
+            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("booknow-61e27");
 
 
         }
 
-        private async void btn_showSchedule_Click(object sender, RoutedEventArgs e)
-        {
-            Query app = db.Collection("Appointment").WhereEqualTo("lecturerID", details["lecturerId"]);
-            QuerySnapshot appointmentSnapshot = await app.GetSnapshotAsync();
 
-
-            txb_schedule.Text = "";
-            
-
-            foreach (DocumentSnapshot Snapshot in appointmentSnapshot.Documents)
-            {
-
-                if (Snapshot.Exists)
-                {
-                    Dictionary<string, object> item  = Snapshot.ToDictionary();
-
-                    
-                    
-                    foreach (var field in item)                  
-                    {
-                        
-                        txb_schedule.Text += string.Format("{0} - {1}\n", field.Key, field.Value);
-                    }
-                }
-            }
-        }
 
         private async void btn_makeAvailabletime_Click(object sender, RoutedEventArgs e)
         {
-            DocumentReference update = db.Collection("Lecturer").Document(details["lecturerId"]);
+            DocumentReference update = db.Collection("Lecturer").Document("OwlOlzd9TjV7Q3MPoDWq");
             Dictionary<string, object> updates = new Dictionary<string, object>
-            
+
             {
-                    
-                    {"schedule", txb_time.Text }
-                
-                
+                    {"name",txb_name.Text },
+                    {"schedules", txb_time.Text }
+
+
             };
-            DocumentReference update1 = await db.Collection("Appointment").AddAsync(updates);
+            DocumentReference update1 = await db.Collection("Lecturer").AddAsync(updates);
         }
 
 
@@ -105,6 +82,6 @@ namespace RAD_assignment
             details = (Dictionary<string, string>)e.Parameter;
         }
 
-       
+
     }
 }

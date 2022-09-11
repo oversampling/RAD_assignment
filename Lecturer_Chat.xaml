@@ -12,21 +12,25 @@
         <NavigationView PaneDisplayMode="Left" IsSettingsVisible="False" x:Name="navbar">
             <NavigationView.MenuItems>
                 <NavigationViewItem
-                        x:Name="link_studentDetail"
-                        Content="Lecturer Profile"
-                        Tag="SamplePage1" />
-                <NavigationViewItem
                         x:Name="link_lecturerDetail"
-                        Content="My Appointment"
-                        Tag="SamplePage2" />
+                        Content="Lecturer Profile"
+                        Tag="SamplePage1" Tapped=" link_lecturerDetail_Tapped"/>
                 <NavigationViewItem
-                        x:Name="link_add_student"
-                        Content="My Schedule"
-                        Tag="SamplePage3" />
+                        x:Name="link_myAppointment"
+                        Content="My Appointment"
+                        Tag="SamplePage2" Tapped="link_myAppointment_Tapped"/>
+                <NavigationViewItem
+                        x:Name="link_mySchedule"
+                        Content="My Schedules"
+                        Tag="SamplePage3" Tapped="link_mySchedule_Tapped"/>
                 <NavigationViewItem
                         x:Name="link_chat"
                         Content="Chat"
-                        Tag="SamplePage3" Tapped="link_chat_Tapped" />
+                        Tag="SamplePage4" Tapped="link_chat_Tapped" />
+                <NavigationViewItem
+                        x:Name="link_logout"
+                        Content="Log Out"
+                        Tag="SamplePage5" Tapped="link_logout_Tapped" />
             </NavigationView.MenuItems>
         </NavigationView>
         <StackPanel Orientation="Vertical" Margin="150 0">

@@ -41,12 +41,12 @@ namespace RAD_assignment
 
         private async void showAppointment_Click(object sender, RoutedEventArgs e)
         {
-            
-            Query app = db.Collection("Appointment").WhereEqualTo("lecturerID", details["lecturerId"]);
+
+            Query app = db.Collection("Appointment").WhereEqualTo("lecturerID", "OwlOlzd9TjV7Q3MPoDWq");
             QuerySnapshot appointmentSnapshot = await app.GetSnapshotAsync();
 
 
-            txb_appointment.Text = "";
+            txb_appointments.Text = "";
 
             foreach (DocumentSnapshot Snapshot in appointmentSnapshot.Documents)
             {
@@ -56,49 +56,44 @@ namespace RAD_assignment
                     Dictionary<string, object> item = Snapshot.ToDictionary();
                     foreach (var field in item)
                     {
-                        txb_appointment.Text += string.Format("{0} - {1}\n", field.Key, field.Value);
+                        txb_appointments.Text += string.Format("{0} - {1}\n", field.Key, field.Value);
                     }
                 }
             }
-            
-                
-            
+
+
+
         }
         private async void acceptAppointment_Click(object sender, RoutedEventArgs e)
         {
-            DocumentReference update = db.Collection("Lecturer").Document(details["lecturerId"]);
+            DocumentReference update = db.Collection("Appointment").Document("AInkDSN74eLi6r5baAhp");
             Dictionary<string, object> updates = new Dictionary<string, object>
+                         {
+                             {"status","accept" }
 
-            {
-
-                    {"studentID", txb_student.Text},
-                    {"status",  "Accept"}
-
-            };
+                        };
             await update.UpdateAsync(updates);
-            
+
         }
         private async void declineAppointment_Click(object sender, RoutedEventArgs e)
         {
-            DocumentReference update = db.Collection("Lecturer").Document(details["lectureId"]);
+            DocumentReference update = db.Collection("Appointment").Document("AInkDSN74eLi6r5baAhp");
             Dictionary<string, object> updates = new Dictionary<string, object>
-            {
-                {"studentID", txb_student.Text},
-                {"status",  "Decline"}
-                
-            };
+                         {
+                             {"status","decline" }
+
+                        };
             await update.UpdateAsync(updates);
         }
 
         private async void pendingAppointment_Click(object sender, RoutedEventArgs e)
         {
-            DocumentReference update = db.Collection("Lecturer").Document(details["lecturerId"]);
+            DocumentReference update = db.Collection("Appointment").Document("AInkDSN74eLi6r5baAhp");
             Dictionary<string, object> updates = new Dictionary<string, object>
-            {
-                {"studentID", txb_student.Text},
-                {"status", "Pending" }
-                
-            };
+                         {
+                             {"status","pending" }
+
+                        };
             await update.UpdateAsync(updates);
         }
 

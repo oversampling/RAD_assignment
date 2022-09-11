@@ -174,5 +174,22 @@ namespace RAD_assignment
             txb_chat_message.Text = "";
             progress1.IsActive = false;
         }
+        private void link_lecturerDetail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Lecturer_Details), details);
+        }
+        private void link_myAppointment_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Lecturer_Appointment), details);
+        }
+        private void link_mySchedule_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Lecturer_Schedule), details);
+        }
+
+        private void link_logout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Lecturer_Login), details);
+        }
     }
 }

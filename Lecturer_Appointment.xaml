@@ -34,22 +34,21 @@
                         Tag="SamplePage5" Tapped="link_logout_Tapped" />
             </NavigationView.MenuItems>
         </NavigationView>
-        
+
         <StackPanel Orientation="Vertical" Margin="150 0">
             <controls:DropShadowPanel Color="Black"
                           OffsetX="10"
                           OffsetY="0"
                           BlurRadius="5"
-                          ShadowOpacity=".4"
-                          Width="847"
-                          Height="624" 
+                          ShadowOpacity="0"
+                          Width="874"
+                          Height="567" 
                           Margin="0 200"        
                           HorizontalContentAlignment="Stretch"
                           VerticalContentAlignment="Stretch">
-                <StackPanel Orientation="Vertical" Background="White" MaxWidth="847" Height="624"  HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                    
-                    <TextBlock FontSize="30" FontWeight="Black" Foreground="LightGreen" Width="825" Height="109" Padding="0 30" TextWrapping="Wrap"
+                <StackPanel Orientation="Vertical" Background="White" MaxWidth="847"  HorizontalAlignment="Center" Margin="0,-128,0,-129">
+
+                    <TextBlock FontSize="30" FontWeight="Black" Foreground="LightGreen" Width="825" Height="74" Padding="0 30" TextWrapping="Wrap"
                                    TextAlignment="Left"><Run Text="Appointment"/></TextBlock>
 
                     <TextBlock TextAlignment="Left"  Foreground="Black" Width="520" RenderTransformOrigin="0.11,0.513" Height="36"><Run Text="Student ID" FontSize="20"/></TextBlock>
@@ -61,38 +60,34 @@
                           BlurRadius="5"
                           ShadowOpacity=".4"
                           Width="520"
-                          Height="20"
+                          Height="40"
                           HorizontalContentAlignment="Stretch"
                           VerticalContentAlignment="Stretch">
                         <TextBox x:Name="txb_student"  Background="White" BorderThickness="0" />
                     </controls:DropShadowPanel>
-                    
+
                     <TextBlock TextAlignment="Left"  Foreground="Black" Width="520" RenderTransformOrigin="0.11,0.513" Height="36"><Run Text="Appointment Schedule" FontSize="20"/></TextBlock>
-                       
-                    
+
+
                     <controls:DropShadowPanel Color="Black"
-                                                  Grid.Row="0" Grid.Column="1"
+                          Grid.Row="0" Grid.Column="1"
                           OffsetX="0"
                           OffsetY="0"
                           BlurRadius="5"
-                          ShadowOpacity=".4"
+                          ShadowOpacity="0"
                           Width="520"
-                          Height="220"
+                          
                           HorizontalContentAlignment="Stretch"
                           VerticalContentAlignment="Stretch">
-                        <TextBox x:Name="txb_appointment"  Background="White" BorderThickness="0" />
+
                     </controls:DropShadowPanel>
+                    <TextBox x:Name="txb_appointments"  Margin="0,0,0,16" TextWrapping="Wrap" Text="" Width="526" />
                     <Button x:Name="acceptAppointment" Content="Accept Appointment" Click="acceptAppointment_Click" Width="150"    Margin="350,5,0,0" />
                     <Button x:Name="declineAppointment" Content="Decline Appointment" Click="declineAppointment_Click" Width="150"  Margin="350,5,0,0"/>
                     <Button x:Name="pendingAppointment" Content="Pending Appointment" Click="pendingAppointment_Click" Width="150" Margin="350,5,0,0" />
                     <Button x:Name="showAppointment" Content="Get Appointment" Click="showAppointment_Click" Width="150" Margin="350,5,0,0"/>
                 </StackPanel>
             </controls:DropShadowPanel>
-            
-            
         </StackPanel>
-        
-
-
     </StackPanel>
 </Page>

@@ -49,7 +49,7 @@
                 VerticalAlignment="Center">
                     <TextBlock FontSize="50" FontWeight="Black" Foreground="Red" Width="825" Height="109" Padding="0 30" TextWrapping="Wrap"
                                    TextAlignment="Left"><Run Text="Add Schedule"/></TextBlock>
-                    <TextBlock TextAlignment="Left"  Foreground="Black" Width="518"><Run Text="Appointment Time" FontSize="20"/></TextBlock>
+                    <TextBlock TextAlignment="Left"  Foreground="Black" Width="518"><Run Text="Lecturer Name" FontSize="20"/></TextBlock>
 
                     <controls:DropShadowPanel Color="Black"
                                                   Grid.Row="0" Grid.Column="1"
@@ -58,16 +58,13 @@
                           BlurRadius="5"
                           ShadowOpacity=".4"
                           Width="520"
+                          Height="50"
                           HorizontalContentAlignment="Stretch"
                           VerticalContentAlignment="Stretch">
-                        <TextBox x:Name="txb_time" Text="Appointment Available Time" Background="White" BorderThickness="0" />
+                        <TextBox x:Name="txb_name" Text="" Background="White" BorderThickness="0" />
                     </controls:DropShadowPanel>
-                    
-                    
-                    
-                    
-                    
-                    <TextBlock TextAlignment="Left"  Foreground="Black" Width="520" RenderTransformOrigin="0.11,0.513" Height="36"><Run Text="Appointment Schedule" FontSize="20"/></TextBlock>
+
+                    <TextBlock TextAlignment="Left"  Foreground="Black" Width="518"><Run Text="Available Appointment Time" FontSize="20"/></TextBlock>
 
                     <controls:DropShadowPanel Color="Black"
                                                   Grid.Row="0" Grid.Column="1"
@@ -76,19 +73,21 @@
                           BlurRadius="5"
                           ShadowOpacity=".4"
                           Width="520"
-                          Height="220"
+                          Height="50"
                           HorizontalContentAlignment="Stretch"
                           VerticalContentAlignment="Stretch">
-                        <TextBox x:Name="txb_schedule"  Background="White" BorderThickness="0" />
+                        <TextBox x:Name="txb_time" Text="" Background="White" BorderThickness="0" />
                     </controls:DropShadowPanel>
-                    
-                    
+
+
+
+
                     <Button x:Name="btn_makeAvailabletime" Content="Make Available Time" Margin="315,32,0,0" Click="btn_makeAvailabletime_Click" Width="153"/>
-                    <Button x:Name="btn_showSchedule" Content="Get My Schedule" Margin="315,32,0,0" Click="btn_showSchedule_Click" Width="153"/>
+
                 </StackPanel>
             </controls:DropShadowPanel>
         </StackPanel>
-        
+
 
     </StackPanel>
 </Page>

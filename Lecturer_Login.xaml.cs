@@ -64,7 +64,7 @@ namespace RAD_assignment
                         }
                         Dictionary<string, string> loginId = new Dictionary<string, string>();
                         loginId.Add("lecturerId", documentID);
-                        Frame.Navigate(typeof(Lecturer_Main_Page), loginId);
+                        Frame.Navigate(typeof(Lecturer_Details), loginId);
                         break;
                     }
                 }
