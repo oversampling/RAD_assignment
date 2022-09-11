@@ -86,5 +86,9 @@ namespace RAD_assignment
             DocumentReference update = await db.Collection("Appointment").AddAsync(updates);
         }
 
+        private void logout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Login));
+        }
     }
 }

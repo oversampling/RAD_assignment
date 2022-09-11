@@ -85,5 +85,10 @@ namespace RAD_assignment
 
 
         }
+
+        private void logout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Login));
+        }
     }
 }

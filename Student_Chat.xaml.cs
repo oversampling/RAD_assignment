@@ -198,5 +198,9 @@ namespace RAD_assignment
             this.Frame.Navigate(typeof(my_appointment), details);
         }
 
+        private void loguot_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Login));
+        }
     }
 }

@@ -32,6 +32,10 @@
                         x:Name="link_chat"
                         Content="Chat"
                         Tag="SamplePage3" Tapped="link_chat_Tapped"/>
+                <NavigationViewItem
+                        x:Name="logout"
+                        Content="Logout"
+                        Tag="SamplePage3" Tapped="logout_Tapped"/>
             </NavigationView.MenuItems>
         </NavigationView>
 

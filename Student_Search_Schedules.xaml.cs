@@ -36,7 +36,10 @@ namespace RAD_assignment
         {
             this.Frame.Navigate(typeof(Student_Main_Page), details);
         }
-
+        private void logout_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Student_Login));
+        }
         private void link_SearchScheduleDetails_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Student_Search_Schedules), details);
