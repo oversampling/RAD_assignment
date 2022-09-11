@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -142,7 +143,7 @@ namespace RAD_assignment
             TextBlock chat_partner = (TextBlock)e.AddedItems[0];
             selected_chatPartner = (string)chat_partner.Tag;
         }
-
+        private static readonly HttpClient client = new HttpClient();
         private async void btn_submit_message_Click(object sender, RoutedEventArgs e)
         {
             progress1.IsActive = true;
@@ -155,6 +156,14 @@ namespace RAD_assignment
                 { "message", message }
             };
             DocumentReference docRef = await db.Collection("Chat").AddAsync(chat);
+            var values = new Dictionary<string, string>
+              {
+                  { "receiver_email", "chan1992241@gmail.com" },
+                  { "message", message },
+                  { "sender_name", "student1" }
+              };
+            var content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("http://localhost:62296/api/home", content);
             ListViewItem chat_message = new ListViewItem
             {
                 Width = 847,
@@ -170,5 +179,6 @@ namespace RAD_assignment
         {
             this.Frame.Navigate(typeof(Student_Search_Schedules), details);
         }
+
     }
 }

@@ -131,8 +131,14 @@
     <Compile Include="Admin_Login.xaml.cs">
       <DependentUpon>Admin_Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lecturer_Appointment.xaml.cs">
+      <DependentUpon>Lecturer_Appointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lecturer_Chat.xaml.cs">
       <DependentUpon>Lecturer_Chat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lecturer_Details.xaml.cs">
+      <DependentUpon>Lecturer_Details.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lecturer_Login.xaml.cs">
       <DependentUpon>Lecturer_Login.xaml</DependentUpon>
@@ -140,6 +146,10 @@
     <Compile Include="Lecturer_Main_Page.xaml.cs">
       <DependentUpon>Lecturer_Main_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lecturer_Schedule.xaml.cs">
+      <DependentUpon>Lecturer_Schedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lecturer_Sechedule.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -193,9 +203,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lecturer_Appointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Lecturer_Chat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lecturer_Details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Lecturer_Login.xaml">
       <SubType>Designer</SubType>
@@ -204,6 +222,10 @@
     <Page Include="Lecturer_Main_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lecturer_Schedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>

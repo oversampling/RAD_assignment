@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -141,7 +142,7 @@ namespace RAD_assignment
             TextBlock chat_partner = (TextBlock)e.AddedItems[0];
             selected_chatPartner = (string)chat_partner.Tag;
         }
-
+        private static readonly HttpClient client = new HttpClient();
         private async void btn_submit_message_Click(object sender, RoutedEventArgs e)
         {
             progress1.IsActive = true;
@@ -154,6 +155,15 @@ namespace RAD_assignment
                 { "message", message }
             };
             DocumentReference docRef = await db.Collection("Chat").AddAsync(chat);
+            var values = new Dictionary<string, string>
+              {
+                  { "receiver_email", "chan1992241@1utar.my" },
+                  { "message", message },
+                  { "sender_name", "lecturer1" }
+              };
+            var content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("http://localhost:62296/api/home", content);
+            var responseString = await response.Content.ReadAsStringAsync();
             ListViewItem chat_message = new ListViewItem
             {
                 Width = 847,
